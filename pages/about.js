@@ -10,7 +10,6 @@ import site from "../data/site";
 import { getServices } from "../src/lib/api";
 
 const About = ({ services }) => {
-  // Group capabilities and link them to the real service pages
   const capabilities = site.capabilityGroups.map((group) => ({
     icon: group.icon,
     title: group.title,

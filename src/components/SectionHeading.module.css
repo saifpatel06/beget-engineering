@@ -1,0 +1,32 @@
+.heading {
+  max-width: 46rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+.center {
+  margin-inline: auto;
+  text-align: center;
+}
+.center .rule {
+  margin-inline: auto;
+}
+.rule {
+  display: block;
+  width: 3.5rem;
+  height: 5px;
+  background: var(--weld);
+  margin-bottom: 1.1rem;
+}
+.title {
+  color: var(--graphite);
+}
+.intro {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: var(--slate);
+}
+.dark .title {
+  color: var(--white);
+}
+.dark .intro {
+  color: var(--galv);
+}

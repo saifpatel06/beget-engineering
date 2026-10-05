@@ -1,0 +1,114 @@
+.footer {
+  padding-top: clamp(3.5rem, 6vw, 5.5rem);
+  background: var(--graphite);
+  color: var(--galv);
+  border-top: 6px solid var(--weld);
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+}
+.logoMark {
+  display: block;
+  border-radius: 50%;
+}
+.logoText {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  line-height: 1;
+}
+.logoName {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.logoSub {
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.34em;
+}
+.about {
+  max-width: 28rem;
+  margin-top: 1.5rem;
+  font-size: 0.98rem;
+}
+.social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.socialLink {
+  display: inline-flex;
+  width: 2.6rem;
+  height: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.socialLink:hover {
+  background: var(--weld);
+  color: var(--graphite);
+  border-color: var(--weld);
+}
+.title {
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  color: var(--white);
+}
+.list {
+  display: grid;
+  gap: 0.6rem;
+}
+.twoCol {
+  grid-template-columns: 1fr;
+}
+.link {
+  color: var(--galv);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.link:hover {
+  color: var(--white);
+  text-decoration-color: var(--weld);
+}
+.contact {
+  display: grid;
+  gap: 1rem;
+}
+.contact li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+.contact svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--weld);
+}
+.address {
+  display: grid;
+  font-style: normal;
+}
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-block: 1.5rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+@media (min-width: 1200px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,39 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.filter {
+  padding: 0.6rem 1.15rem;
+  font: 600 0.95rem/1.2 var(--font-body);
+  color: var(--graphite);
+  background: var(--white);
+  border: 2px solid var(--graphite);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.filter:hover {
+  background: var(--galv);
+}
+/* selected state: filled + check mark, not colour alone */
+.selected,
+.selected:hover {
+  color: var(--white);
+  background: var(--graphite);
+  box-shadow: inset 0 -4px 0 var(--weld);
+}
+.selected::before {
+  content: "\2713\00a0";
+}
+.count {
+  margin: 1.5rem 0 1.75rem;
+  color: var(--slate);
+  font-size: 0.98rem;
+}
+.empty {
+  padding: 2.5rem;
+  text-align: center;
+  border: 1px dashed var(--slate);
+  color: var(--slate);
+}

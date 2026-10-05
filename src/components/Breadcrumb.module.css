@@ -1,0 +1,30 @@
+.breadcrumb {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: var(--galv);
+}
+.item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.item > span[aria-current] {
+  color: var(--white);
+  font-weight: 600;
+}
+.link {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 3px;
+}
+.link:hover {
+  text-decoration-color: var(--weld);
+}
+.sep {
+  opacity: 0.6;
+}

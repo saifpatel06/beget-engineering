@@ -1,0 +1,205 @@
+/* ==========================================================================
+   Beget Engineering: global styles
+   Palette: graphite / steel (structure) + weld orange (action)
+   ========================================================================== */
+
+:root {
+  --graphite: #1b2229;
+  --steel: #2b3640;
+  --slate: #4a5866;
+  --galv: #e4e8eb;
+  --paper: #f3f5f6;
+  --white: #ffffff;
+  --weld: #f0651f;
+  --weld-deep: #b04309; /* orange for text on light backgrounds (AA contrast) */
+  --blue: #2e5e7e;
+  --focus: #1f6feb;
+
+  --font-display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Public Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --header-h: 76px;
+  --wrap: 1600px;
+  --gutter: clamp(1.5rem, 4vw, 3.5rem); /* >= half of Bootstrap g-5 gutter, so rows never overflow */
+  --section-y: clamp(3rem, 6vw, 5.25rem);
+  --radius: 3px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--graphite);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: 0.005em;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.75rem, 6.4vw, 6rem);
+  font-weight: 700;
+}
+h2 {
+  font-size: clamp(2.1rem, 4vw, 3.5rem);
+}
+h3 {
+  font-size: clamp(1.5rem, 2vw, 1.85rem);
+}
+
+p {
+  margin: 0;
+}
+
+/* ---------- focus (visible on every interactive element) ---------- */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.on-dark :focus-visible,
+.dark :focus-visible {
+  outline-color: #ffb27a;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 3000;
+  background: var(--weld);
+  color: var(--graphite);
+  padding: 0.7rem 1.1rem;
+  font-weight: 700;
+  border-radius: var(--radius);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- layout helpers ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+.section-paper {
+  background: var(--paper);
+}
+.section-dark {
+  background: var(--graphite);
+  color: var(--white);
+}
+
+/* ---------- buttons ---------- */
+.bt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.7rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.bt:hover {
+  transform: translateY(-2px);
+}
+.bt-primary {
+  background: var(--weld);
+  color: var(--graphite);
+}
+.bt-primary:hover {
+  background: #ff7a35;
+}
+.bt-outline {
+  border-color: rgba(255, 255, 255, 0.75);
+  color: var(--white);
+}
+.bt-outline:hover {
+  background: var(--white);
+  color: var(--graphite);
+}
+.bt-dark {
+  background: var(--graphite);
+  color: var(--white);
+}
+.bt-dark:hover {
+  background: var(--steel);
+}
+.bt-outline-dark {
+  border-color: var(--graphite);
+  color: var(--graphite);
+}
+.bt-outline-dark:hover {
+  background: var(--graphite);
+  color: var(--white);
+}
+.bt[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---------- motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

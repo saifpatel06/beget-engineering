@@ -1,0 +1,82 @@
+.form {
+  width: 100%;
+}
+.label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+.required,
+.optional {
+  font-weight: 400;
+  font-size: 0.88rem;
+  color: var(--slate);
+}
+.control {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 0.8rem 0.95rem;
+  font: inherit;
+  color: var(--graphite);
+  background: var(--white);
+  border: 2px solid #9aa5af;
+  border-radius: var(--radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.control:hover {
+  border-color: var(--slate);
+}
+.control:focus {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.25);
+  outline: none;
+}
+input[type="file"].control {
+  padding: 0.6rem;
+  background: var(--paper);
+}
+.invalid {
+  border-color: #b3261e;
+  background: #fff6f5;
+}
+.hint {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--slate);
+}
+/* error text uses an icon + words, not colour alone */
+.error {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.4rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #b3261e;
+}
+.summary {
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+  color: #7a1a15;
+  background: #fdecea;
+  border-left: 5px solid #b3261e;
+}
+.submit {
+  margin-top: 1.75rem;
+  min-width: 12rem;
+}
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--paper);
+  border-left: 6px solid var(--weld);
+}
+.success svg {
+  color: var(--weld-deep);
+}

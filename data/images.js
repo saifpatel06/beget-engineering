@@ -57,6 +57,7 @@ export const clientPhotos = {
     img("control-panels", "client1-control-panels.png", "Control panel assembly inside the workshop"),
     img("control-panels", "client2-control-panels.png", "Control panel assembly inside the workshop"),
     img("control-panels", "client3-control-panels.png", "Control panel assembly inside the workshop"),
+    img("control-panels", "client4-control-panels.png", "Control panel assembly inside the workshop"),
   ],
   "storage-systems": [
     img("storage-systems", "storage-systems.jpg", "Custom industrial storage system"),

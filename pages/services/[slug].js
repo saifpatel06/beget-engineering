@@ -59,7 +59,7 @@ const ServiceDetail = ({ service, services, related }) => {
           </div>
         </section>
 
-        <section id="videos" className="section" aria-labelledby="videos-title">
+        {/* <section id="videos" className="section" aria-labelledby="videos-title">
           <div className="wrap">
             <SectionHeading
               id="videos-title"
@@ -68,7 +68,7 @@ const ServiceDetail = ({ service, services, related }) => {
             />
             <VideoGallery videos={service.videos} />
           </div>
-        </section>
+        </section> */}
 
         <WhyChooseUs
           id="why-this-service"

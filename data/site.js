@@ -14,7 +14,7 @@ const site = {
     region: "Maharashtra",
     postalCode: "411013",
     country: "IN",
-    phone: "+91 94220 04651",
+    phone: "+91 97655 51959",
     email: "info@begetengineering.com", // placeholder: replace with the real company email
     hours: "Mon - Sat, 9:30 AM - 6:30 PM", // placeholder: confirm working hours
     mapEmbedUrl:

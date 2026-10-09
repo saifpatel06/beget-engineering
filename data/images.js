@@ -8,7 +8,7 @@ const img = (slug, filename, alt) => ({ src: `/images/services/${slug}/${filenam
 
 // NEW: Standalone Landing Page Hero Banner
 export const heroBanner = {
-  src: "/images/landing-page-banner.jpg",
+  src: "/images/hero-image-v2.jpeg",
   alt: "Beget Engineering Landing Page Banner",
 };
 

@@ -2,10 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    formats: ["image/avif", "image/webp"],
-    // When media moves to the CMS / CodeIgniter server, add its host here:
-    // remotePatterns: [{ protocol: "https", hostname: "cms.your-domain.com" }],
-  },
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+        pathname: "/g6wp13xzl/**",
+      },
+    ],
+  }
 };
 
 module.exports = nextConfig;

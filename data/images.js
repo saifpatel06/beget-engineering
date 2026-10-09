@@ -1,14 +1,10 @@
-// Centralized image definitions for Beget Engineering
+const IMAGEKIT_BASE_URL = "https://ik.imagekit.io/g6wp13xzl";
 
-// Standard helper function for default .jpg files
-// const img = (slug, n, alt) => ({ src: `/images/services/${slug}/${n}.jpg`, alt });
-
-// Custom helper function to handle specific extensions like .png
-const img = (slug, filename, alt) => ({ src: `/images/services/${slug}/${filename}`, alt });
+const img = (slug, filename, alt) => ({ src: `${IMAGEKIT_BASE_URL}/images/services/${slug}/${filename}`, alt, });
 
 // NEW: Standalone Landing Page Hero Banner
 export const heroBanner = {
-  src: "/images/hero-image-v2.jpeg",
+  src: "https://ik.imagekit.io/g6wp13xzl/images/hero-image-v2.jpeg",
   alt: "Beget Engineering Landing Page Banner",
 };
 

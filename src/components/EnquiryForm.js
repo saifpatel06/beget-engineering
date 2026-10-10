@@ -53,10 +53,11 @@ const validateField = (field, value) => {
 const EnquiryForm = ({
   fields,
   initialValues = {},
-  submitLabel = "Send enquiry",
+  submitLabel,
   successTitle = "Thank you. We have your enquiry.",
   successText = "A member of the Beget Engineering team will get back to you shortly.",
   onSubmit = submitEnquiry,
+  submissionMethod = "email",
 }) => {
   const formRef = useRef(null);
   const [values, setValues] = useState(initialValues);
@@ -88,28 +89,75 @@ const EnquiryForm = ({
     }
   };
 
+  
+  const sendEnquiryToWhatsApp = () => {
+    const clientWhatsApp = "919422004651";
+
+    const message = [
+      "New Website Enquiry - Beget Engineering",
+      "",
+      ...fields
+        .filter((field) => field.type !== "file")
+        .map((field) => {
+          const rawValue = values[field.name];
+          let displayValue = rawValue || "Not provided";
+
+          if (field.type === "select" && rawValue) {
+            const option = field.options?.find(
+              (item) => item.value === rawValue
+            );
+            displayValue = option?.label || rawValue;
+          }
+
+          return `${field.label}: ${displayValue}`;
+        }),
+    ].join("\n");
+
+    const url = `https://wa.me/${clientWhatsApp}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const found = validateAll();
     setErrors(found);
 
     const firstInvalid = fields.find((field) => found[field.name]);
+
     if (firstInvalid) {
       setStatus("idle");
-      formRef.current?.querySelector(`[name="${firstInvalid.name}"]`)?.focus();
+      formRef.current
+        ?.querySelector(`[name="${firstInvalid.name}"]`)
+        ?.focus();
       return;
     }
 
+    // Contact page: open WhatsApp, without pretending the message was sent.
+    if (submissionMethod === "whatsapp") {
+      sendEnquiryToWhatsApp();
+      return;
+    }
+
+    // Quote page: submit details and attachments by email.
     setStatus("submitting");
+
     try {
       const formData = new FormData();
+
       fields.forEach((field) => {
         const value = values[field.name];
-        if (value !== undefined && value !== null && value !== "") formData.append(field.name, value);
+
+        if (value !== undefined && value !== null && value !== "") {
+          formData.append(field.name, value);
+        }
       });
+
       await onSubmit(formData);
       setStatus("success");
     } catch (error) {
+      console.error("Enquiry submission failed:", error);
       setStatus("error");
     }
   };
@@ -228,9 +276,17 @@ const EnquiryForm = ({
           );
         })}
       </div>
-
-      <button type="submit" className={`bt bt-primary ${styles.submit}`} disabled={status === "submitting"}>
-        {status === "submitting" ? "Sending…" : submitLabel}
+      <button
+        type="submit"
+        className={`bt bt-primary ${styles.submit}`}
+        disabled={status === "submitting"}
+      >
+        {status === "submitting"
+          ? "Sending…"
+          : submitLabel ||
+            (submissionMethod === "whatsapp"
+              ? "Send enquiry on WhatsApp"
+              : "Request a quote")}
       </button>
     </form>
   );

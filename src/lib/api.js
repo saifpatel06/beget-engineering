@@ -56,14 +56,17 @@ export const getFeaturedVideos = async (limit = 6) => {
     }));
 };
 
-// POST /enquiries  (contact and quote forms send FormData, so attachments work)
-export const submitEnquiry = async (formData) => {
-  // const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/enquiries`, {
-  //   method: "POST",
-  //   body: formData,
-  // });
-  // if (!res.ok) throw new Error("Enquiry failed");
-  // return res.json();
-  await new Promise((resolve) => setTimeout(resolve, 900));
-  return { ok: true };
-};
+export async function submitEnquiry(formData) {
+  const response = await fetch("/api/submit-enquiry", {
+    method: "POST",
+    body: formData,
+  });
+
+  const result = await response.json();
+
+  if (!response.ok || !result.success) {
+    throw new Error(result.message || "Unable to send enquiry.");
+  }
+
+  return result;
+}

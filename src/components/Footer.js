@@ -29,7 +29,7 @@ const Footer = ({ services = [] }) => {
               </span>
             </Link>
             <p className={styles.about}>{site.description}</p>
-            <ul className={styles.social} aria-label="Social media">
+            {/* <ul className={styles.social} aria-label="Social media">
               {site.social.map((item) => (
                 <li key={item.name}>
                   <a href={item.href} className={styles.socialLink}>
@@ -38,7 +38,7 @@ const Footer = ({ services = [] }) => {
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
 
           <nav className="col-6 col-md-4 col-lg-2" aria-label="Quick links">

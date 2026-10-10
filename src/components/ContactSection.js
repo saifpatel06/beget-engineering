@@ -108,9 +108,10 @@ const ContactSection = ({ services = [] }) => {
               <h2 className={styles.formTitle}>Send us a message</h2>
               <EnquiryForm
                 fields={contactFields(services)}
-                submitLabel="Send message"
-                successTitle="Thank you. Your message has been received."
+                submissionMethod="whatsapp"
+                submitLabel="Send enquiry on WhatsApp"
               />
+
             </div>
           </div>
         </div>
